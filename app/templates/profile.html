@@ -167,12 +167,17 @@
     <script src="/static/js/main.js"></script>
 
     <script>
+
         document.addEventListener('DOMContentLoaded', function() {
             // Check authentication status
             function checkAuthStatus() {
                 console.log("Checking auth status...");
                 // Check if user is logged in by looking for token in localStorage
                 const token = localStorage.getItem('access_token');
+                if (!token) {
+                // No token, redirect to login
+                window.location.href = '/login';
+}
 
                 const authButtons = document.getElementById('authButtons');
                 const userMenu = document.getElementById('userMenu');
