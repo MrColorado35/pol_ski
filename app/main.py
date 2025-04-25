@@ -4,6 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import os
 from pathlib import Path
+from .routes import pages, lesson_words, categories, word_practice, user_progress
 
 from . import models
 from .database import engine
@@ -40,10 +41,12 @@ app.include_router(users.router)
 app.include_router(lessons.router)
 app.include_router(words.router)
 
-from .routes import pages, lesson_words, categories
 app.include_router(pages.router)
 app.include_router(lesson_words.router)
 app.include_router(categories.router)
+app.include_router(word_practice.router)
+app.include_router(user_progress.router)
+
 
 @app.get("/")
 async def root():
