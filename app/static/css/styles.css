@@ -1,0 +1,233 @@
+/* app/static/css/styles.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+}
+
+/* Custom navbar branding */
+.navbar-brand {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Hero section */
+.display-4 {
+    font-weight: 600;
+}
+
+/* Cards styling */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Polish word cards */
+.card-title {
+    color: #0d6efd;
+    font-weight: bold;
+}
+
+/* Form styles */
+.form-label {
+    font-weight: 500;
+}
+
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .display-4 {
+        font-size: 2.5rem;
+    }
+
+    .lead {
+        font-size: 1.1rem;
+    }
+}
+
+/* Learning interface specific styles */
+.word-card {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.polish-word {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0d6efd;
+    margin-bottom: 1rem;
+}
+
+.english-translation {
+    font-size: 1.5rem;
+    color: #6c757d;
+}
+
+.pronunciation {
+    font-style: italic;
+    color: #6c757d;
+    margin-top: 0.5rem;
+}
+
+/* Progress bar */
+.progress {
+    height: 10px;
+    margin: 1rem 0;
+}
+
+/* Quiz options */
+.quiz-option {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border: 2px solid #dee2e6;
+    border-radius: 5px;
+    background-color: #ffffff;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.quiz-option:hover {
+    border-color: #0d6efd;
+}
+
+.quiz-option.correct {
+    border-color: #198754;
+    background-color: #d1e7dd;
+}
+
+.quiz-option.incorrect {
+    border-color: #dc3545;
+    background-color: #f8d7da;
+}
+
+/* Footer */
+footer {
+    margin-top: 3rem;
+    padding: 2rem 0;
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+}
+
+
+/* Drag and drop styles */
+.drag-word {
+    cursor: grab;
+    transition: transform 0.2s, opacity 0.2s;
+    user-select: none;
+}
+
+.drag-word:hover {
+    transform: scale(1.05);
+}
+
+.drag-word.dragging {
+    opacity: 0.5;
+}
+
+.sentence-builder {
+    min-height: 50px;
+    transition: background-color 0.2s;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.sentence-builder.drag-over {
+    background-color: #f0f8ff;
+}
+
+.sentence-builder .badge {
+    cursor: pointer;
+}
+
+/* Flashcard styles for review */
+.flashcard {
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.flashcard:hover {
+    transform: translateY(-3px);
+}
+
+.flashcard .polish-word {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+.flashcard .english-translation {
+    font-size: 1.5rem;
+    color: #495057;
+}
+
+/* Quiz styles */
+.quiz-option {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border: 2px solid #dee2e6;
+    border-radius: 5px;
+    background-color: #ffffff;
+    transition: all 0.2s;
+    text-align: left;
+    cursor: pointer;
+}
+
+.quiz-option:hover {
+    border-color: #0d6efd;
+    background-color: #f8f9fa;
+}
+
+.quiz-option.correct {
+    border-color: #198754;
+    background-color: #d1e7dd;
+}
+
+.quiz-option.incorrect {
+    border-color: #dc3545;
+    background-color: #f8d7da;
+}
+
+.quiz-option:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* Word learning styles */
+.word-learned-btn:disabled {
+    background-color: #28a745;
+    border-color: #28a745;
+    opacity: 0.7;
+}
