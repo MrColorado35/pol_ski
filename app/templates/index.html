@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pol_Ski - Learn Practical Polish</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">Pol_Ski</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/lessons">Lessons</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/practice">Practice</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                </ul>
+                <div class="d-flex" id="authButtons">
+                    <a class="btn btn-outline-light me-2" href="/login">Login</a>
+                    <a class="btn btn-light" href="/register">Register</a>
+                </div>
+                <div class="d-none" id="userMenu">
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown">
+                            <span id="username">User</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="/profile">My Profile</a></li>
+                            <li><a class="dropdown-item" href="/progress">My Progress</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 text-center">
+                <h1 class="display-4">Learn Polish the Easy Way</h1>
+                <p class="lead">Master practical Polish without getting lost in grammar complexity</p>
+
+                <div class="mt-5 d-flex justify-content-center">
+                    <a href="/lessons" class="btn btn-primary btn-lg mx-2">Start Learning</a>
+                    <a href="/about" class="btn btn-outline-secondary btn-lg mx-2">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <h3>Simplified Learning</h3>
+                        <p>Focus on just one form of each word instead of many variations</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <h3>Practical Communication</h3>
+                        <p>Learn to express yourself quickly with just 300-500 essential words</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <h3>Interactive Practice</h3>
+                        <p>Build sentences and practice with real-world scenarios</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5 mb-5">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="text-center mb-4">Try a Sample Lesson</h2>
+                        <div id="sampleLesson">
+                            <div class="text-center p-4">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <p>Loading sample content...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center">
+            <p>Pol_Ski - Simplified Polish Learning App</p>
+            <p><small>© 2025 - All rights reserved</small></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/main.js"></script>
+    <script>
+        // Load sample content when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSampleContent();
+            checkAuthStatus();
+        });
+
+        function loadSampleContent() {
+            // This would normally fetch from your API
+            fetch('/api/words/public?limit=5')
+                .then(response => response.json())
+                .then(data => {
+                    let html = '<div class="row">';
+
+                    if (data.length > 0) {
+                        html += '<div class="col-12 mb-4"><h4>Some Basic Polish Words:</h4></div>';
+
+                        data.forEach(word => {
+                            html += `
+                                <div class="col-md-6 mb-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">${word.polish}</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">${word.english}</h6>
+                                            <p class="card-text">
+                                                <small>Pronunciation: ${word.pronunciation}</small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                    } else {
+                        html += `
+                            <div class="col-12">
+                                <div class="alert alert-info">
+                                    Sample content will appear here once you've added words to the database.
+                                </div>
+                            </div>
+                        `;
+                    }
+
+                    html += '</div>';
+                    html += '<div class="text-center mt-3">';
+                    html += '<a href="/register" class="btn btn-success">Sign Up to Learn More</a>';
+                    html += '</div>';
+
+                    document.getElementById('sampleLesson').innerHTML = html;
+                })
+                .catch(error => {
+                    document.getElementById('sampleLesson').innerHTML = `
+                        <div class="alert alert-warning">
+                            Unable to load sample content. Please try again later.
+                        </div>
+                    `;
+                    console.error('Error loading sample content:', error);
+                });
+        }
+
+        function checkAuthStatus() {
+            // Check if user is logged in by looking for token in localStorage
+            const token = localStorage.getItem('access_token');
+
+            if (token) {
+                // User is logged in
+                document.getElementById('authButtons').classList.add('d-none');
+                document.getElementById('userMenu').classList.remove('d-none');
+
+                // Get user info
+                fetch('/users/me', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        // Token invalid or expired
+                        localStorage.removeItem('access_token');
+                        window.location.reload();
+                    }
+                })
+                .then(user => {
+                    document.getElementById('username').textContent = user.username;
+                })
+                .catch(error => {
+                    console.error('Error fetching user info:', error);
+                });
+            } else {
+                // User is not logged in
+                document.getElementById('authButtons').classList.remove('d-none');
+                document.getElementById('userMenu').classList.add('d-none');
+            }
+        }
+
+        // Handle logout
+        document.getElementById('logoutBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            localStorage.removeItem('access_token');
+            window.location.href = '/';
+        });
+    </script>
+</body>
+</html>

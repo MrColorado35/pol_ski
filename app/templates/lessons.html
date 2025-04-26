@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lessons - Pol_Ski</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">Pol_Ski</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/lessons">Lessons</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/practice">Practice</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                </ul>
+                <div class="d-flex" id="authButtons">
+                    <a class="btn btn-outline-light me-2" href="/login">Login</a>
+                    <a class="btn btn-light" href="/register">Register</a>
+                </div>
+                <div class="d-none" id="userMenu">
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown">
+                            <span id="username">User</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="/profile">My Profile</a></li>
+                            <li><a class="dropdown-item" href="/progress">My Progress</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <h1>Polish Lessons</h1>
+                <p class="lead">Choose a lesson to start learning simplified Polish</p>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="categorySelect" class="form-label">Filter by Category:</label>
+                    <select id="categorySelect" class="form-select">
+                        <option value="">All Categories</option>
+                        <!-- Categories will be loaded dynamically -->
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div id="alertContainer"></div>
+
+        <div class="row">
+            <div class="col-12">
+                <div id="lessonsContainer">
+                    <!-- Lessons will be loaded dynamically -->
+                    <div class="text-center p-5">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-3">Loading lessons...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h4>Why our approach works</h4>
+                        <p>Traditional Polish learning methods often overwhelm beginners with complex grammar rules and numerous word forms. Our approach focuses on simplicity:</p>
+                        <ul>
+                            <li><strong>One form per word</strong> - We teach just one version of each noun and verb</li>
+                            <li><strong>Focus on communication</strong> - Learn to express yourself quickly without perfectionism</li>
+                            <li><strong>Practical vocabulary</strong> - Master the 300-500 most essential words</li>
+                        </ul>
+                        <p class="mb-0">This method allows you to start communicating in Polish much faster than traditional approaches!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center">
+            <p>Pol_Ski - Simplified Polish Learning App</p>
+            <p><small>© 2025 - All rights reserved</small></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("Lessons debug script loaded");
+
+    // Direct fetch of lessons
+    fetch('/api/lessons/public')
+        .then(response => response.json())
+        .then(data => {
+            console.log("Direct fetch response:", data);
+            console.log("Response type:", typeof data);
+            console.log("Is array?", Array.isArray(data));
+
+            if (Array.isArray(data)) {
+                console.log("Array length:", data.length);
+            } else if (data && typeof data === 'object') {
+                console.log("Object keys:", Object.keys(data));
+
+                // Try to find lesson data in various properties
+                if (Array.isArray(data.data)) {
+                    console.log("data.data is array, length:", data.data.length);
+                }
+                if (Array.isArray(data.lessons)) {
+                    console.log("data.lessons is array, length:", data.lessons.length);
+                }
+                if (Array.isArray(data.items)) {
+                    console.log("data.items is array, length:", data.items.length);
+                }
+
+                // Try to convert object to array
+                try {
+                    const asArray = Object.values(data);
+                    console.log("Object.values result:", asArray);
+                    console.log("Is array now?", Array.isArray(asArray));
+                    console.log("Length:", asArray.length);
+                } catch (e) {
+                    console.error("Error converting to array:", e);
+                }
+            }
+        })
+        .catch(error => {
+            console.error("Error fetching lessons:", error);
+        });
+});
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Authentication status check
+        function checkAuthStatus() {
+            console.log("Checking auth status...");
+            // Check if user is logged in by looking for token in localStorage
+            const token = localStorage.getItem('access_token');
+
+            const authButtons = document.getElementById('authButtons');
+            const userMenu = document.getElementById('userMenu');
+
+            if (!authButtons || !userMenu) {
+                console.error("Auth UI elements not found");
+                return;
+            }
+
+            if (token) {
+                // User is logged in
+                authButtons.classList.add('d-none');
+                userMenu.classList.remove('d-none');
+
+                // Get user info
+                fetch('/users/me', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        // Token invalid or expired
+                        console.log("Token invalid or expired");
+                        localStorage.removeItem('access_token');
+                        window.location.reload();
+                    }
+                })
+                .then(user => {
+                    if (user) {
+                        const usernameElement = document.getElementById('username');
+                        if (usernameElement) {
+                            usernameElement.textContent = user.username;
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching user info:', error);
+                });
+            } else {
+                // User is not logged in
+                authButtons.classList.remove('d-none');
+                userMenu.classList.add('d-none');
+            }
+        }
+
+        // Initialize logout button
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('access_token');
+                window.location.href = '/';
+            });
+        }
+
+        // Check auth status when page loads
+        checkAuthStatus();
+    });
+</script>
+</body>
+</html>
