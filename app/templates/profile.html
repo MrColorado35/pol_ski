@@ -174,8 +174,10 @@
                 console.log("Checking auth status...");
                 // Check if user is logged in by looking for token in localStorage
                 const token = localStorage.getItem('access_token');
-                if (!token) {
-                // No token, redirect to login
+                if (!token) { 
+                // No token, redirect to log in
+                authButtons.classList.remove('d-none');
+                userMenu.classList.add('d-none');
                 window.location.href = '/login';
 }
 
