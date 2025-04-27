@@ -151,4 +151,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - Inspired by simplified approaches to language learning
 - Built with FastAPI and Bootstrap 5
-- Special thanks to contributors and language learning enthusiasts
+- Special thanks to my friends - language learning enthusiasts - who motivated me to create app like this.
