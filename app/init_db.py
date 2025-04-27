@@ -218,7 +218,7 @@ SAMPLE_LESSONS = [
         "difficulty_level": 1,
         "order_number": 1,
         "category_name": "Greetings & Basic Phrases",
-        "words": ["Cześć", "Dzień dobry", "Jak się masz", "Dziękuję", "Proszę"]
+        "words": ["Cześć", "Dzień dobry", "Jak się masz", "Dziękuję", "Proszę", "Przepraszam"]
     },
     {
         "title": "Yes, No, and Maybe",
@@ -242,7 +242,15 @@ SAMPLE_LESSONS = [
         "difficulty_level": 1,
         "order_number": 2,
         "category_name": "Personal Pronouns & Common Verbs",
-        "words": ["Być", "Jestem", "Jesteś", "Jest", "Przepraszam"]
+        "words": ["Być", "Jestem", "Jesteś", "Jest"]
+    },
+{
+        "title": "Basic Verbs",
+        "description": "Learn how to use essential verbs in Polish.",
+        "difficulty_level": 1,
+        "order_number": 2,
+        "category_name": "Personal Pronouns & Common Verbs",
+        "words": ["Być", "Mieć", "Iść", "Jeść", "Pić"]
     },
     {
         "title": "Ordering Drinks",
@@ -267,7 +275,15 @@ SAMPLE_LESSONS = [
         "order_number": 1,
         "category_name": "Time & Date",
         "words": ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"]
-    }
+    },
+    {
+        "title": "Ordering food",
+        "description": "Learn names of common foods",
+        "difficulty_level": 1,
+        "order_number": 2,
+        "category_name": "Food",
+        "words": ["chleb", "mięso", "ziemniak", "zupa"]
+        },
 ]
 
 

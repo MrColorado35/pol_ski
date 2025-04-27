@@ -18,6 +18,8 @@ essential_words = [
              "pronunciation": "dob-ri vye-choor", "difficulty_level": 1},
             {"polish": "Do widzenia", "english": "Goodbye", "part_of_speech": "greeting",
              "pronunciation": "do vee-dze-nya", "difficulty_level": 1},
+            {"polish": "dobranoc", "english": "good night", "part_of_speech": "phrase",
+            "pronunciation": "doh-brah-nots"},
             {"polish": "Dziękuję", "english": "Thank you", "part_of_speech": "phrase", "pronunciation": "jen-koo-ye",
              "difficulty_level": 1},
             {"polish": "Proszę", "english": "Please/You're welcome", "part_of_speech": "phrase",
@@ -86,6 +88,12 @@ essential_words = [
             {"polish": "mówić", "english": "to speak/say", "part_of_speech": "verb", "pronunciation": "moo-vich",
              "difficulty_level": 1,
              "simplified_conjugation": "mówię (I speak), mówisz (you speak), mówi (he/she/it speaks)"},
+            {"polish": "jeść", "english": "to eat", "part_of_speech": "verb", "pronunciation": "yesh-ch"},
+            {"polish": "pić", "english": "to drink", "part_of_speech": "verb", "pronunciation": "peech"},
+            {"polish": "spać", "english": "to sleep", "part_of_speech": "verb", "pronunciation": "spach"},
+            {"polish": "znać", "english": "to know", "part_of_speech": "verb", "pronunciation": "znach"},
+            {"polish": "potrzebować", "english": "to need", "part_of_speech": "verb",
+             "pronunciation": "po-che-bo-vach"},
         ]
     },
 
@@ -184,8 +192,30 @@ essential_words = [
              "pronunciation": "res-taw-ra-tsya", "difficulty_level": 1},
             {"polish": "rachunek", "english": "bill", "part_of_speech": "noun", "pronunciation": "ra-hoo-nek",
              "difficulty_level": 1},
+            {"polish": "ziemniak", "english": "potato", "part_of_speech": "noun", "pronunciation": "zhem-nyak"},
+
         ]
     },
+    {
+        "category": {
+           "name": "People",
+            "description": "People and relationships between people"
+        },
+            "words": [
+                {"polish": "mężczyzna", "english": "man", "part_of_speech": "noun", "pronunciation": "men-chiz-na"},
+                {"polish": "kobieta", "english": "woman", "part_of_speech": "noun", "pronunciation": "ko-bye-ta"},
+                {"polish": "dziecko", "english": "child", "part_of_speech": "noun", "pronunciation": "jets-ko"},
+                {"polish": "przyjaciel", "english": "friend", "part_of_speech": "noun",
+                 "pronunciation": "pshi-ya-chel"},
+                {"polish": "rodzina", "english": "family", "part_of_speech": "noun", "pronunciation": "ro-jee-nah"},
+                {"polish": "mama", "english": "mom", "part_of_speech": "noun", "pronunciation": "ma-ma"},
+                {"polish": "tata", "english": "dad", "part_of_speech": "noun", "pronunciation": "ta-ta"},
+                {"polish": "brat", "english": "brother", "part_of_speech": "noun", "pronunciation": "brat"},
+                {"polish": "siostra", "english": "sister", "part_of_speech": "noun", "pronunciation": "shosh-tra"},
+                {"polish": "mąż", "english": "husband", "part_of_speech": "noun", "pronunciation": "mohnzh"},
+                {"polish": "żona", "english": "wife", "part_of_speech": "noun", "pronunciation": "zho-na"}
+            ]
+        },
 
     {
         "category": {
@@ -233,6 +263,10 @@ essential_words = [
              "difficulty_level": 1},
             {"polish": "bilet", "english": "ticket", "part_of_speech": "noun", "pronunciation": "bee-let",
              "difficulty_level": 1},
+            {"polish": "miasto", "english": "city", "part_of_speech": "noun", "pronunciation": "myahs-to"},
+            {"polish": "sklep", "english": "store", "part_of_speech": "noun", "pronunciation": "sklep"},
+            {"polish": "hotel", "english": "hotel", "part_of_speech": "noun", "pronunciation": "ho-tel"},
+            {"polish": "park", "english": "park", "part_of_speech": "noun", "pronunciation": "park"}
         ]
     },
 
@@ -321,6 +355,8 @@ essential_words = [
              "difficulty_level": 1},
             {"polish": "piękny", "english": "beautiful", "part_of_speech": "adjective", "pronunciation": "pyenk-ni",
              "difficulty_level": 1},
+            {"polish": "gorący", "english": "hot", "part_of_speech": "adjective", "pronunciation": "go-ron-tsy"},
+
         ]
     },
 
